@@ -1,20 +1,10 @@
-<div align="center">
+# Auditing a Public Road Accident Dataset from Bangladesh
 
-<img src="assets/banner.svg" alt="Auditing a Public Road Accident Dataset from Bangladesh" width="100%">
+**Exploratory Analysis, Association Testing, and Fatality Classification**
 
-<a href="https://github.com/nishatkh/bangladesh-road-accident-audit">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=2F81F7&center=true&vCenter=true&width=760&lines=Checking+the+data+before+fitting+the+model;47%2C676+accidents.+31+variables.+18+tests.;Classifier+AUC+of+.504%3A+indistinguishable+from+chance;The+file+is+unsuitable+for+risk-factor+inference" alt="Typing animation summarising the findings">
-</a>
-
-<br>
-
-![Records](https://img.shields.io/badge/records-47%2C676-2f81f7?style=for-the-badge)
-![Variables](https://img.shields.io/badge/variables-31-2f81f7?style=for-the-badge)
-![AUC](https://img.shields.io/badge/test%20AUC-.504-f0883e?style=for-the-badge)
-![Max effect](https://img.shields.io/badge/max%20Cram%C3%A9r's%20V-.026-f0883e?style=for-the-badge)
-![Python](https://img.shields.io/badge/python-pandas%20%7C%20scipy%20%7C%20scikit--learn-3776ab?style=for-the-badge)
-
-</div>
+| Records | Variables | Tests run | Max Cramér's V | Test AUC |
+| --- | --- | --- | --- | --- |
+| 47,676 | 31 | 18 | .026 | .504 |
 
 ---
 
@@ -46,9 +36,13 @@ The study began as an attempt to find risk factors for fatal accidents and ended
 
 > A classifier with an impressive score on these data would have looked like a finding and would have been wrong. Checking a dataset before modeling it is the more valuable result.
 
-<div align="center">
-  <img src="assets/pipeline.svg" alt="Analysis pipeline" width="100%">
-</div>
+```mermaid
+flowchart LR
+    A[Load and clean<br/>47,676 accidents] --> B[Descriptive EDA<br/>years, months, hours]
+    B --> C[Chi-square tests<br/>Cramér's V, 18 variables]
+    C --> D[Classifier<br/>AUC = .504]
+    D --> E[Data audit<br/>file is unreliable]
+```
 
 ---
 
@@ -64,9 +58,11 @@ The study began as an attempt to find risk factors for fatal accidents and ended
 | Classifier | Tuned model reached AUC = .504 on 9,536 held-out accidents |
 | Verdict | The file is unsuitable for risk-factor inference |
 
-<div align="center">
-  <img src="assets/trend.svg" alt="Volume rose while fatal share stayed flat" width="85%">
-</div>
+| Measure | 2007 | 2021 | Change |
+| --- | --- | --- | --- |
+| Recorded accidents | about 2,500 | about 4,900 | +98.8% |
+| Total casualties | about 7,400 | about 15,000 | roughly doubled |
+| Fatal share | 65.8% to 67.5% across all years | | flat |
 
 ---
 
@@ -148,9 +144,12 @@ The `_x` and `_y` suffixes are what pandas adds when two tables are merged, whic
 
 Accidents with 0, 1, and 2 to 4 deaths each make up about one third of the file, and no accident has five or more deaths. Real severity counts normally fall as deaths per crash rise.
 
-<div align="center">
-  <img src="assets/death-classes.svg" alt="Accidents by number of deaths" width="85%">
-</div>
+| Deaths per accident | Share of accidents |
+| --- | --- |
+| 0 | 33.2% |
+| 1 | 33.5% |
+| 2 to 4 | 33.3% |
+| 5 or more | 0.0% |
 
 ### Calendar patterns
 
@@ -279,11 +278,6 @@ Adjust to match your actual layout.
 ```text
 .
 |-- README.md
-|-- assets/                  animated SVGs used in this README
-|   |-- banner.svg
-|   |-- pipeline.svg
-|   |-- trend.svg
-|   `-- death-classes.svg
 |-- paper/
 |   `-- bangladesh_road_accident_article.pdf
 |-- notebooks/               analysis notebook
@@ -292,21 +286,8 @@ Adjust to match your actual layout.
 
 ---
 
-## Citation
-
-```bibtex
-@misc{nishat_road_accident_audit,
-  author = {Nishat, MD. Nahidur Rahman Khan},
-  title  = {Auditing a Public Road Accident Dataset from Bangladesh:
-            Exploratory Analysis, Association Testing, and Fatality Classification},
-  note   = {Department of Computing and Information System,
-            Daffodil International University, Dhaka-1216, Bangladesh},
-  year   = {2026}
-}
-```
-
 Dataset: mdnahidurrahmankh. *Bangladesh Road Accident Dataset 2007-2024* [Data set]. Kaggle.
 
-<div align="center">
-  <sub>Findings describe the audited file only and should not be read as evidence about road risk in Bangladesh.</sub>
-</div>
+---
+
+*Findings describe the audited file only and should not be read as evidence about road risk in Bangladesh.*
