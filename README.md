@@ -307,16 +307,6 @@ Adjust to match your actual layout.
 
 Dataset: mdnahidurrahmankh. *Bangladesh Road Accident Dataset 2007-2024* [Data set]. Kaggle.
 
----
-
-## Author
-
-**MD. Nahidur Rahman Khan Nishat**
-Department of Computing and Information System, Daffodil International University, Dhaka-1216, Bangladesh
-GitHub: [@nishatkh](https://github.com/nishatkh)
-
----
-
 <div align="center">
   <sub>Findings describe the audited file only and should not be read as evidence about road risk in Bangladesh.</sub>
 </div>
